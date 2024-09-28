@@ -23,16 +23,8 @@ jobs:
           valueFile: "_config.yml"
           propertyPath: "giscus.repo"
           value: ${{ github.repository }}
-      - name: Install and Build
-        run: |
-          pip3 install --upgrade jupyter
-          export JEKYLL_ENV=production
-          gem install jekyll jekyll-mentions
-          bundle exec jekyll build
-      - name: Purge unused CSS
-        run: |
-          npm install -g purgecss
-          purgecss -c purgecss.config.js
+      - name: Build Jekyll for GitHub Pages
+        uses: actions/jekyll-build-pages@v1.0.13
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
