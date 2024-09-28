@@ -16,6 +16,9 @@ jobs:
         with:
           ruby-version: "3.2.2"
           bundler-cache: true
+      - name: Install required Gems
+        run: |
+          gem install jekyll-mentions
       - name: Update _config.yml
         uses: fjogeleit/yaml-update-action@main
         with:
