@@ -10,6 +10,24 @@ tiled_bg: false # Set this true if you want to tile your background image, other
 locale: en_US
 url: https://jamlotrasoiaf.github.io/sunny-day-in
 
+authors:
+  name   : "Frodo"
+  avatar : "/assets/img/frodo.png"
+  bio    : "Host of the Sunny Worms System. Tech nerd"
+
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
+
 # Jekyll
 permalink: /:title/
 markdown: kramdown
