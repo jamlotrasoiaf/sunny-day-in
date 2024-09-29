@@ -24,5 +24,5 @@ layout: post
     {% endfor %}
   };
 </script>
-<script src="https://unpkg.com/lunr/lunr.js"></script>
+<script src="/assets/js/lunr.js"></script>
 <script src="/assets/js/search.js"></script>
