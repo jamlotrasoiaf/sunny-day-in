@@ -17,7 +17,7 @@ authors:
   bio    : "Host of the Sunny Worms System. Tech nerd"
 
 # Jekyll
-permalink: /:title/
+permalink: /:year-:month-:day-:title:output_ext
 markdown: kramdown
 highlighter: rouge
 kramdown:
