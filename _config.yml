@@ -4,8 +4,8 @@ bio: "A personal blog"
 description: "A personal blog by the Sunny Worms system, chronicling day-to-day life."
 reading_time: true
 words_per_minute: 200
-logo: "assets/img/logo.png"
-background: "assets/img/moonrise-background.jpg"
+logo: "assets/img/Lihito_TELL.jpg"
+background: "assets/img/galaxy-3608029.jpg"
 tiled_bg: false # Set this true if you want to tile your background image, otherwise it will be covered
 locale: en_US
 url: https://jamlotrasoiaf.github.io/sunny-day-in
