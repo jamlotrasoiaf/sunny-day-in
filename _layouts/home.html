@@ -10,7 +10,6 @@ layout: compress
 
 <head>
     {% include head.html %}
-    {% include searchbox.html %}
 </head>
 
 <body>
@@ -33,6 +32,7 @@ layout: compress
                         <p style="font-size:1rem;font-weight:300">{{ site.bio }}</p>
                     </a>
                 </h3>
+                {% include searchbox.html %}
                 {% include social-links.html %}
                 <hr class="hr-line">
                 <h3 class="title">
