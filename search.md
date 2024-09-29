@@ -2,7 +2,7 @@
 layout: post
 ---
 <div class="header-search">
-  <form class="header-search-form" action="{{ site.url }}/search" method="get">
+  <form class="header-search-form" action="{{ site.url }}/search/" method="get">
     <input type="text" id="search-box" name="query">
     <input type="submit" value="search">
   </form>
