@@ -12,7 +12,7 @@ layout: post
 
 <script>
   window.store = {
-    {% for post in {{ site.url }}.posts %}
+    {% for post in site.posts %}
       "{{ post.url | slugify }}": {
         "title": "{{ post.title | xml_escape }}",
         "author": "{{ post.author | xml_escape }}",
