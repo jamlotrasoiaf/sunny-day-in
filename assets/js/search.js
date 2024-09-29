@@ -50,7 +50,7 @@
         'id': key,
         'title': window.store[key].title,
         'author': window.store[key].author,
-        'category': window.store[key].excerpt,
+        'excerpt': window.store[key].excerpt,
         'content': window.store[key].content
       });
 
