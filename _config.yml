@@ -16,11 +16,6 @@ authors:
   avatar : "/assets/img/frodo.png"
   bio    : "Host of the Sunny Worms System. Tech nerd"
 
-algolia:
-  application_id: 'EAN4BRYKWA'
-  index_name: 'sunny-day-in'
-  search_only_api_key: 'e766fe15e9d16459f1a10b1dd5dbe903'
-
 # Jekyll
 permalink: /:title/
 markdown: kramdown
