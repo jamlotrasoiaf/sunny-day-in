@@ -9,6 +9,10 @@ background: "assets/img/galaxy-3608029.jpg"
 tiled_bg: false # Set this true if you want to tile your background image, otherwise it will be covered
 locale: en_US
 url: https://jamlotrasoiaf.github.io/sunny-day-in
+search: true
+search_full_content: true
+lunr:
+  search_within_pages: true
 
 authors:
   name   : "Frodo"
