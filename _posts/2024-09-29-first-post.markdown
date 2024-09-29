@@ -9,19 +9,19 @@ feature: https://hana-doll.com/core_sys/images/contents/00000066/block/00000691/
 comments: true
 ---
 
-### Hello!
+## Hello!
 I am Frodo, and uh, I have an exam in 2 hours so maybe I should focus on that. But anyway, I'm looking forward to having fun with this blog! Will update this later with how my exam went
 
 That's about it! Sunny out!
 
-### Well....
+## Well....
 .....and I'm back a few minutes later.  
 Worrying about exam.  
 Worrying about getting home.  
 *Worrying about everything ngl*  
 Sigh. I hope at least the exam today goes smoothly.
 
-### And a separate set of worries....
+## And a separate set of worries....
 ....by which I mean I haven't switched for a few days.  
 And every time I don't switch for a few days I feel like I'm faking.  
 Oh, Toki just called me "stupid"? Maybe I'm not faking it haha.  
