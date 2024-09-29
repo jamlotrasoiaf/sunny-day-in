@@ -33,7 +33,7 @@ defaults:
       related: true
 
 # Jekyll
-permalink: /:title/
+permalink: /:year-:month-:day-:title:output_ext
 markdown: kramdown
 highlighter: rouge
 kramdown:
