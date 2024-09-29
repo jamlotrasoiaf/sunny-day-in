@@ -1,96 +1,62 @@
-<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch.min.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.6.0/dist/instantsearch-theme-algolia.min.css">
-
-<script>
-const search = instantsearch({
-  appId: '{{ site.algolia.application_id }}',
-  apiKey: '{{ site.algolia.search_only_api_key }}',
-  indexName: '{{ site.algolia.index_name }}'
+// Listen changes from input element
+search.addWidget({
+  init: function(opts) {
+    const helper = opts.helper;
+    const input = document.querySelector('#searchBox');
+    input.addEventListener('input', function(e) {
+      helper.setQuery(e.currentTarget.value) // update the parameters
+            .search(); // launch the query
+    });
+  }
 });
 
-const hitTemplate = function(hit) {
-  let date = '';
-  if (hit.date) {
-    date = moment.unix(hit.date).format('MMM D, YYYY');
+// Render results in hits element
+search.addWidget({
+  render: function(opts) {
+    const results = opts.results;
+    // read the hits from the results and transform them into HTML.
+    document.querySelector('#hits').innerHTML = results.hits.map(function(h) {
+      let formattedTime = date_unix_str(h.date);
+      let external_tag = ('link' in h) ? `<span class="tag is-danger"><i class="fas fa-external-link-alt"></i></span>`: '' ;
+      let img_template = '';
+      if ('image' in h) {
+        img_template = `
+      <div class="card-image">
+        <figure class="image">
+          <a href="${('link' in h) ? h.link : h.url}">
+            <center>
+              <amp-img src="${h.image.path}" width="368" height="245" alt="${h.title}" layout="intrinsic"></amp-img>
+            </center>
+          </a>
+        </figure>
+      </div>`
+      } 
+
+      return `
+    <div class="column is-one-third">
+      <div class="card">` + img_template  + `
+        <div class="card-content">
+          <div class="media apretaito">
+            <div class="media-content">
+              <a href="${('link' in h) ? h.link : h.url}" ${('link' in h) ? "target=\"_blank\"" : ''} class="title is-4">${h.title}</a>
+            </div>
+          </div>
+          <div class="content apretaito">
+            <p>
+              ${h.description}
+            </p>
+            <div class="tags has-addons">
+              <span class="tag">
+                <i class="fas fa-calendar-alt"></i>&nbsp;${ formattedTime }
+              </span>
+              <span class="tag is-link">
+                ${ h.categories.join(", ")}
+              </span>` + external_tag + `
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`
+    }).join('');
   }
-
-  let url = `{{ site.baseurl }}${hit.url}#${hit.anchor}`;
-
-  const title = hit._highlightResult.title.value;
-
-  let breadcrumbs = '';
-  if (hit._highlightResult.headings) {
-    breadcrumbs = hit._highlightResult.headings.map(match => {
-      return `<span class="post-breadcrumb">${match.value}</span>`
-    }).join(' > ')
-  }
-
-  const content = hit._highlightResult.html.value;
-
-  return `
-    <div class="post-item">
-      <span class="post-meta">${date}</span>
-      <h2><a class="post-link" href="${url}">${title}</a></h2>
-      {{#breadcrumbs}}<a href="${url}" class="post-breadcrumbs">${breadcrumbs}</a>{{/breadcrumbs}}
-      <div class="post-snippet">${content}</div>
-    </div>
-  `;
-}
-
-
-search.addWidget(
-  instantsearch.widgets.searchBox({
-    container: '#search-searchbar',
-    placeholder: 'Search into posts...',
-    poweredBy: true // This is required if you're on the free Community plan
-  })
-);
-
-search.addWidget(
-  instantsearch.widgets.hits({
-    container: '#search-hits',
-    templates: {
-      item: hitTemplate
-    }
-  })
-);
-
-search.start();
-</script>
-
-<style>
-.ais-search-box {
-  max-width: 100%;
-  margin-bottom: 15px;
-}
-.post-item {
-  margin-bottom: 30px;
-}
-.post-link .ais-Highlight {
-  color: #111;
-  font-style: normal;
-  text-decoration: underline;
-}
-.post-breadcrumbs {
-  color: #424242;
-  display: block;
-}
-.post-breadcrumb {
-  font-size: 18px;
-  color: #424242;
-}
-.post-breadcrumb .ais-Highlight {
-  font-weight: bold;
-  font-style: normal;
-}
-.post-snippet .ais-Highlight {
-  color: #2a7ae2;
-  font-style: normal;
-  font-weight: bold;
-}
-.post-snippet img {
-  display: none;
-}
-</style>
+});
