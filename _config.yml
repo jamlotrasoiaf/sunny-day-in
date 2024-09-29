@@ -75,10 +75,10 @@ plugins:
   - jekyll-seo-tag
   - jekyll-paginate
   - jekyll-include-cache
-  - jekyll-lunr-js-custom-search
 
 jekyll-mentions:
   base_url: https://github.com
+  
 
 # Exclude list
 exclude:
