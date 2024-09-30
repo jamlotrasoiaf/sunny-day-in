@@ -1,12 +1,45 @@
 ---
 layout: post
 ---
-<form action="{{ site.baseurl }}/search.html" method="get">
-  <label for="search-box">Search</label>
-  <input type="text" id="search-box" name="query">
-  <input type="submit" value="search">
-</form>
+<head>
+    {% include head.html %}
+</head>
+<body>
+    {% include nav.html %}
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="wrapper animated fadeIn">
+            <div class="content">
+                <div class="post-title">
+                    <h1>{{ page.title }}</h1>
+                    <a class="btn zoombtn" href="{{site.url}}">
+                        <i class="fa fa-home"></i>
+                    </a>
+                </div>
+                <div class="search">
+                    <form action="{{ site.baseurl }}/search.html" method="get">
+                        <label for="search-box">Search</label>
+                        <input type="text" id="search-box" name="query">
+                        <input type="submit" value="search">
+                    </form>
+                    <ul id="search-results">
+                    {% include scripts.html %}
+                    {% if result.length == 0 %}
+                        <ul><li>No Results found!</li></ul>
+                    {% else %}
+                        {% for key in store %}
+                            <ul>
+                                <li class="wow fadeInLeft" data-wow-duration="1.5s">
+                                    <li><a href="key.url"><h3>key.title</h3></a><p>key.content.substring(0, 150) + '...</p></li>
+                                </li>
+                            </ul>
+                        {% endfor %)
+                    {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
 
-<ul id="search-results"></ul>
 
-{% include scripts.html %}
+
