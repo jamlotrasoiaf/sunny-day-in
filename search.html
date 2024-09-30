@@ -24,13 +24,13 @@ layout: post
                     </form>
                     <ul id="search-results">
                         {% include scripts.html %}
-                            {% for key in store %}
-                                <ul>
-                                    <li class="wow fadeInLeft" data-wow-duration="1.5s">
-                                        <li><a href="key.url"><h3>key.title</h3></a><p>key.content.substring(0, 150) + '...</p></li>
-                                    </li>
-                                </ul>
-                            {% endfor %)
+                        {% for key in store %}
+                            <ul>
+                                <li class="wow fadeInLeft" data-wow-duration="1.5s">
+                                    <a href="key.url"><h3>key.title</h3></a><p>key.content.substring(0, 150) + '...</p>
+                                </li>
+                            </ul>
+                        {% endfor %)
                     </ul>
                 </div>
             </div>
