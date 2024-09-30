@@ -24,9 +24,6 @@ layout: post
                     </form>
                     <ul id="search-results">
                         {% include scripts.html %}
-                        {% if result is None %}
-                            <ul><li>No Results found!</li></ul>
-                        {% else %}
                             {% for key in store %}
                                 <ul>
                                     <li class="wow fadeInLeft" data-wow-duration="1.5s">
@@ -34,7 +31,6 @@ layout: post
                                     </li>
                                 </ul>
                             {% endfor %)
-                        {% endif %}
                     </ul>
                 </div>
             </div>
