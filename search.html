@@ -24,7 +24,7 @@ layout: post
                     </form>
                     <ul id="search-results">
                     {% include scripts.html %}
-                    {% if result.length == 0 %}
+                    {% if result is None %}
                         <ul><li>No Results found!</li></ul>
                     {% else %}
                         {% for key in store %}
