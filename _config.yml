@@ -10,6 +10,7 @@ tiled_bg: false # Set this true if you want to tile your background image, other
 locale: en_US
 url: https://jamlotrasoiaf.github.io/sunny-day-in
 repository: jamlotrasoiaf/sunny-day-in
+excerpt_separator: ""
 
 authors:
   name   : "Frodo"
